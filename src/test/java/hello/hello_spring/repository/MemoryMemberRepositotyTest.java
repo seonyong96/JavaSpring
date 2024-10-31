@@ -16,8 +16,8 @@ public class MemoryMemberRepositotyTest {
         repositoty.save(member);
 
         Member result = repositoty.findById(member.getId()).get();
-        //Assertions.assertEquals(result, member);
-        //Assertions.assertEquals(member, null);
+        // Assertions.assertEquals(result, member);
+        // Assertions.assertEquals(member, null);
         Assertions.assertThat(member).isEqualTo(result);
     }
 }
