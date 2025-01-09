@@ -1,6 +1,9 @@
 package hello.hello_spring.repository;
 import hello.hello_spring.domain.Member;
+import org.springframework.stereotype.Repository;
+
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository {
 
@@ -20,7 +23,7 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> findById(String name) {
+    public Optional<Member> findByName(String name) {
         return store.values().stream()
                 .filter(member -> member.getName().equals(name))
                 .findAny();
@@ -29,5 +32,9 @@ public class MemoryMemberRepository implements MemberRepository {
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
+    }
+
+    public void clearStore(){
+        store.clear();
     }
 }

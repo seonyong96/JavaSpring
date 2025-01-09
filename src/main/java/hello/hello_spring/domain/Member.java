@@ -1,8 +1,12 @@
 package hello.hello_spring.domain;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Member {
 
-    private Long id;
+    @Id @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    private Long id; // 고객 id x 시스템의 id
     private String name;
 
     public long getId() {
